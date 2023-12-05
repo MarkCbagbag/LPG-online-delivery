@@ -8,6 +8,6 @@ if (mysqli_connect_errno()) {
     echo "Failed to connect to MySQL Server" .
     mysqli_connect_errno();
 } else {
-    echo "Online LPG Tank Delivery";
+    echo "";
 }
 ?>

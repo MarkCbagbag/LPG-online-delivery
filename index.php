@@ -10,49 +10,29 @@ $result = mysqli_query($connection, 'SELECT * FROM user');
 // these are record inside MYSQL
 ?>
 
-<html>
 
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>User Accounts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
 </head>
-
 <body>
-    <!-- this is the destination for inserting record -->
-    <p><a href="add_user.php">Insert New Record</a></p>
-    <h1>Registered Users</h1>
-
-    <table border="3">
-        <!-- this is the title of the records -->
-        <thead style "text-center">
-            <tr>
-                <td>ID No.</td>
-                <td>Name</td>
-                <td>Email</td>
-                <td>Password</td>
-                <td>Change</td>
-            </tr>
-        </thead>
-
-        
-        <?php
-            // these are record inside MYSQL
-
-            while($row = mysqli_fetch_array($result) ) 
-            {
-
-        ?>
-
-        <tr>
-            <td><?php echo $row['user_id']; ?>
-            <td><?php echo $row['user_name']; ?>
-            <td><?php echo $row['user_email']; ?>
-            <td><?php echo $row['user_password']; ?>
-            <td><a href="edit.php?user_id=<?php echo $row ["user_id"]; ?>">Edit</a></td>
-            <td><a href="delete.php?user_id=<?php echo $row ["user_id"]; ?>">Delete</a></td>
-        </tr>
-        <?php } ?>
-
-    </table>
+    <form action="login.php" method="post">
+    <h2>Sign in</h2>
+        <label>Username</label>
+        <input type="text" name="uname" autocomplet="off" required><br>
+        <label>Password</label>
+        <input type="Password" name="Password" autocomplet="off" required><br>
+        <label> Dont have an account
+            <a href="#"> register</a>
+        </label><br><br>
+        <button type="submit">Sign in</button>
+    </form>
 </body>
-
 </html>
